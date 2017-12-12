@@ -185,7 +185,8 @@ if isfield(S.isdesign,'custom'),
 %         error('both windows need to be the same length');
 %     end;
     
-    duration=unique(woi(:,2)-woi(:,1));
+    %duration=unique(woi(:,2)-woi(:,1));
+    duration=(unique(round(1e3*(woi(:,2)-woi(:,1)))))/1e3; % CL: new code to equalise time window lengths to avoid crash due to tiny residual 
     if numel(duration)>1,
         error('both windows need to be the same length');
     end;
